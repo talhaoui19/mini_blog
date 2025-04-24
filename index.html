@@ -1,294 +1,357 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thérapie par Contrainte Induite | Rééducation Hémiplegie</title>
     <style>
-        :root {
-            --primary: #0b3d91;
-            --secondary: #1a4fb3;
-            --accent: #f72585;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --gray: #6c757d;
-            --font-main: 'Montserrat', sans-serif;
-            --font-heading: 'Poppins', sans-serif;
-        }
-        
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@600;700&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: var(--font-main);
-            color: var(--dark);
-            line-height: 1.7;
-            background-color: white;
-            overflow-x: hidden;
-        }
-        
-        /* Navigation */
-        header {
-            background: white;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            z-index: 100;
-        }
-        
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: 1.8rem;
-            color: var(--primary);
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 10rem 2rem 6rem;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4f0fb 100%);
-            text-align: center;
-        }
-        
+      :root {
+        --primary: #0b3d91;
+        --secondary: #1a4fb3;
+        --accent: #f72585;
+        --light: #f8f9fa;
+        --dark: #212529;
+        --gray: #6c757d;
+        --font-main: "Montserrat", sans-serif;
+        --font-heading: "Poppins", sans-serif;
+      }
+
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@600;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-main);
+        color: var(--dark);
+        line-height: 1.7;
+        background-color: white;
+        overflow-x: hidden;
+      }
+
+      /* Navigation */
+      header {
+        background: white;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        z-index: 100;
+      }
+
+      nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1.5rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-family: var(--font-heading);
+        font-weight: 700;
+        font-size: 1.8rem;
+        color: var(--primary);
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 10rem 2rem 6rem;
+        background: linear-gradient(to right, #0b3d91, #3ba0f2);
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-family: var(--font-heading);
+        font-size: 2.8rem;
+        margin-bottom: 1.5rem;
+        color: var(--light);
+        line-height: 1.2;
+      }
+
+      .hero p {
+        max-width: 700px;
+        margin: 0 auto 2.5rem;
+        font-size: 1.2rem;
+        color: var(--light);
+      }
+
+      /* Content Sections */
+      .section {
+        max-width: 1000px;
+        margin: 5rem auto;
+        padding: 0 2rem;
+      }
+
+      .section-title {
+        font-family: var(--font-heading);
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        color: var(--primary);
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title:after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 60%;
+        height: 4px;
+        background: var(--accent);
+        border-radius: 2px;
+      }
+
+      .card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        padding: 2.5rem;
+        margin-bottom: 3rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      }
+
+      .card h3 {
+        font-family: var(--font-heading);
+        color: var(--secondary);
+        margin-bottom: 1.2rem;
+        font-size: 1.5rem;
+      }
+
+      .highlight-box {
+        background: linear-gradient(to right, #f8f9fa, #e9f5ff);
+        border-left: 4px solid var(--primary);
+        padding: 1.5rem;
+        margin: 2rem 0;
+        border-radius: 0 8px 8px 0;
+      }
+
+      /* Image & Figure Styles */
+      .figure-container {
+        text-align: center;
+        margin: 3rem 0;
+      }
+
+      .figure-img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .figure-caption {
+        margin-top: 1rem;
+        font-style: italic;
+        color: var(--gray);
+        text-align: center;
+      }
+
+      /* Stats */
+      .stats {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin: 3rem 0;
+      }
+
+      .stat-item {
+        text-align: center;
+        padding: 1.5rem;
+        min-width: 200px;
+      }
+
+      .stat-number {
+        font-family: var(--font-heading);
+        font-size: 2.5rem;
+        color: var(--primary);
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--dark);
+        color: white;
+        padding: 4rem 2rem;
+        text-align: center;
+      }
+
+      .footer-content {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
         .hero h1 {
-            font-family: var(--font-heading);
-            font-size: 2.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--dark);
-            line-height: 1.2;
+          font-size: 2.2rem;
         }
-        
-        .hero p {
-            max-width: 700px;
-            margin: 0 auto 2.5rem;
-            font-size: 1.2rem;
-            color: var(--gray);
-        }
-        
-        /* Content Sections */
+
         .section {
-            max-width: 1000px;
-            margin: 5rem auto;
-            padding: 0 2rem;
+          margin: 3rem auto;
         }
-        
-        .section-title {
-            font-family: var(--font-heading);
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: var(--primary);
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60%;
-            height: 4px;
-            background: var(--accent);
-            border-radius: 2px;
-        }
-        
+
         .card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            padding: 2.5rem;
-            margin-bottom: 3rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+          padding: 1.8rem;
         }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-        }
-        
-        .card h3 {
-            font-family: var(--font-heading);
-            color: var(--secondary);
-            margin-bottom: 1.2rem;
-            font-size: 1.5rem;
-        }
-        
-        .highlight-box {
-            background: linear-gradient(to right, #f8f9fa, #e9f5ff);
-            border-left: 4px solid var(--primary);
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        /* Image & Figure Styles */
-        .figure-container {
-            text-align: center;
-            margin: 3rem 0;
-        }
-        
-        .figure-img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .figure-caption {
-            margin-top: 1rem;
-            font-style: italic;
-            color: var(--gray);
-            text-align: center;
-        }
-        
-        /* Stats */
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin: 3rem 0;
-        }
-        
-        .stat-item {
-            text-align: center;
-            padding: 1.5rem;
-            min-width: 200px;
-        }
-        
-        .stat-number {
-            font-family: var(--font-heading);
-            font-size: 2.5rem;
-            color: var(--primary);
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-        
-        .footer-content {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .section {
-                margin: 3rem auto;
-            }
-            
-            .card {
-                padding: 1.8rem;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <nav>
-            <div class="logo">CIT</div>
-            <div>Méthode de rééducation</div>
-        </nav>
+      <nav>
+        <div class="logo">CIT</div>
+        <div>Méthode de rééducation</div>
+      </nav>
     </header>
-    
+
     <main>
-        <section class="hero">
-            <h1>La thérapie par le mouvement induit par la contrainte</h1>
-            <p>Une méthode innovante de rééducation du membre supérieur chez l'adulte hémiplégique</p>
-        </section>
-        
-        <section class="section">
-            <h2 class="section-title">Introduction</h2>
-            
-            <div class="card">
-                <div class="highlight-box">
-                    <p>50 à 75% des patients présentent, à la suite de leur rééducation (3 à 6 mois après l'AVC), des difficultés dans l'utilisation de leur membre supérieur.</p>
-                </div>
-                
-                <p>La contrainte induite a vu le jour après des observations de non-utilisations de membres parétiques malgré une commande motrice fonctionnelle. E. Taub l'a défini comme étant une « technique de rééducation visant à modifier le comportement du patient vis-à-vis de son membre déficitaire, avec pour objectif de réduire substantiellement les incapacités en augmentant l'utilisation du membre supérieur dans les activités de la vie quotidienne (AVQ) ».</p>
-            </div>
-            
-            <div class="stats">
-                <div class="stat-item">
-                    <div class="stat-number">50-75%</div>
-                    <div>des patients post-AVC</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">Grade B</div>
-                    <div>Recommandation HAS</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">3-6 mois</div>
-                    <div>Après rééducation</div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Nouveau contenu ajouté : Inhibition interhémisphérique -->
-        <section class="section">
-            <h2 class="section-title">Mécanismes neurophysiologiques</h2>
-            
-            <div class="card">
-                <h3>Inhibition interhémisphérique</h3>
-                
-                <p>La diminution du mouvement, directement lié à la lésion cérébrale, amène à une réduction de la représentation corticale. Les mouvements se font alors plus difficilement et avec plus d'imprécisions. L'explication viendrait de l'inhibition interhémisphérique.</p>
-                
-                <div class="figure-container">
-                    <img src="./aymen 1.png" alt="Schéma de l'inhibition interhémisphérique" class="figure-img">
-                    <p class="figure-caption">Figure 1 - Schéma sur une coupe frontale expliquant l'inhibition interhémisphérique après lésion cérébrale gauche. IFM3R – IFMK 2015/2016 TEFE Franck GOUYGOU</p>
-                </div>
-                
-                <p>Dans le cas d'un AVC, le côté ipsilatéral à la lésion ne pourrait plus tenir en échec l'inhibition de l'hémisphère controlatéral. L'expression motrice du membre parétique serait alors inhibée dès l'initialisation par l'hémisphère sain.</p>
-                
-                <ul style="margin: 1.5rem 0; padding-left: 2rem;">
-                    <li style="margin-bottom: 0.8rem;">Les échecs répétés dans les tâches de la vie quotidienne (improductivité du mouvement, douleurs, non-coordination, etc.) concourent à une utilisation préférentielle du membre controlatéral.</li>
-                    <li style="margin-bottom: 0.8rem;">E. Taub et ses collaborateurs ont observé des singes déafférentés qui essayaient d'utiliser leur membre hémiplégique sans réussite juste après l'opération. Après des pertes d'équilibre, des chutes et des lâchages de nourriture, les singes ont appris à ne plus utiliser leur bras hémiplégique.</li>
-                    <li>Le dernier axe repose sur une mise en place de comportements de compensation plus efficaces et plus économiques en énergie et en attention. Cette mise en place participerait à l'augmentation de la représentation corticale du membre supérieur non-atteint au détriment du membre parétique de par la sur-utilisation de ce membre. Cela se rapporte à la plasticité cérébrale.</li>
-                </ul>
-            </div>
-        </section>
-        
-        <section class="section">
-            <h2 class="section-title">Principes et Méthodologie</h2>
-            
-            <div class="card">
-                <h3>3.1 Les principes fondamentaux</h3>
-                <p>La thérapie par contrainte induite a pour objectif de lutter contre la sous-utilisation acquise du membre parétique malgré une récupération motrice de celui-ci. Elle cherche à réintégrer le membre lésé dans les gestes quotidiens.</p>
-                
-                <p>Le concept-clé de cette technique est la sous-utilisation acquise ou bien appelée amnésie motrice fonctionnelle ou plus simplement exclusion du membre. Trois théories justifient cette exclusion : l'une prône la déafférentation tandis que la deuxième parle de dysafférentation. Quant à la dernière, elle montre une corrélation entre l'héminégligence corporelle et la sous-utilisation acquise.</p>
-            </div>
-        </section>
-    </main>
-    
-    <footer>
-        <div class="footer-content">
-            <h3>Thérapie par Contrainte Induite</h3>
-            <p>Méthode de rééducation validée par la communauté scientifique</p>
-            <p style="margin-top: 2rem;">© 2025 Tous droits réservés</p>
+      <section class="hero">
+        <h1>La thérapie par le mouvement induit par la contrainte</h1>
+        <p>
+          Une méthode innovante de rééducation du membre supérieur chez l'adulte
+          hémiplégique
+        </p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Introduction</h2>
+
+        <div class="card">
+          <div class="highlight-box">
+            <p>
+              50 à 75% des patients présentent, à la suite de leur rééducation
+              (3 à 6 mois après l'AVC), des difficultés dans l'utilisation de
+              leur membre supérieur.
+            </p>
+          </div>
+
+          <p>
+            La contrainte induite a vu le jour après des observations de
+            non-utilisations de membres parétiques malgré une commande motrice
+            fonctionnelle. E. Taub l'a défini comme étant une « technique de
+            rééducation visant à modifier le comportement du patient vis-à-vis
+            de son membre déficitaire, avec pour objectif de réduire
+            substantiellement les incapacités en augmentant l'utilisation du
+            membre supérieur dans les activités de la vie quotidienne (AVQ) ».
+          </p>
         </div>
+
+        <div class="stats">
+          <div class="stat-item">
+            <div class="stat-number">50-75%</div>
+            <div>des patients post-AVC</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">Grade B</div>
+            <div>Recommandation HAS</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">3-6 mois</div>
+            <div>Après rééducation</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Nouveau contenu ajouté : Inhibition interhémisphérique -->
+      <section class="section">
+        <h2 class="section-title">Mécanismes neurophysiologiques</h2>
+
+        <div class="card">
+          <h3>Inhibition interhémisphérique</h3>
+
+          <p>
+            La diminution du mouvement, directement lié à la lésion cérébrale,
+            amène à une réduction de la représentation corticale. Les mouvements
+            se font alors plus difficilement et avec plus d'imprécisions.
+            L'explication viendrait de l'inhibition interhémisphérique.
+          </p>
+
+          <div class="figure-container">
+            <img
+              src="./aymen 1.png"
+              alt="Schéma de l'inhibition interhémisphérique"
+              class="figure-img"
+            />
+            <p class="figure-caption">
+              Figure 1 - Schéma sur une coupe frontale expliquant l'inhibition
+              interhémisphérique après lésion cérébrale gauche. IFM3R – IFMK
+              2015/2016 TEFE Franck GOUYGOU
+            </p>
+          </div>
+
+          <p>
+            Dans le cas d'un AVC, le côté ipsilatéral à la lésion ne pourrait
+            plus tenir en échec l'inhibition de l'hémisphère controlatéral.
+            L'expression motrice du membre parétique serait alors inhibée dès
+            l'initialisation par l'hémisphère sain.
+          </p>
+
+          <ul style="margin: 1.5rem 0; padding-left: 2rem">
+            <li style="margin-bottom: 0.8rem">
+              Les échecs répétés dans les tâches de la vie quotidienne
+              (improductivité du mouvement, douleurs, non-coordination, etc.)
+              concourent à une utilisation préférentielle du membre
+              controlatéral.
+            </li>
+            <li style="margin-bottom: 0.8rem">
+              E. Taub et ses collaborateurs ont observé des singes déafférentés
+              qui essayaient d'utiliser leur membre hémiplégique sans réussite
+              juste après l'opération. Après des pertes d'équilibre, des chutes
+              et des lâchages de nourriture, les singes ont appris à ne plus
+              utiliser leur bras hémiplégique.
+            </li>
+            <li>
+              Le dernier axe repose sur une mise en place de comportements de
+              compensation plus efficaces et plus économiques en énergie et en
+              attention. Cette mise en place participerait à l'augmentation de
+              la représentation corticale du membre supérieur non-atteint au
+              détriment du membre parétique de par la sur-utilisation de ce
+              membre. Cela se rapporte à la plasticité cérébrale.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Principes et Méthodologie</h2>
+
+        <div class="card">
+          <h3>3.1 Les principes fondamentaux</h3>
+          <p>
+            La thérapie par contrainte induite a pour objectif de lutter contre
+            la sous-utilisation acquise du membre parétique malgré une
+            récupération motrice de celui-ci. Elle cherche à réintégrer le
+            membre lésé dans les gestes quotidiens.
+          </p>
+
+          <p>
+            Le concept-clé de cette technique est la sous-utilisation acquise ou
+            bien appelée amnésie motrice fonctionnelle ou plus simplement
+            exclusion du membre. Trois théories justifient cette exclusion :
+            l'une prône la déafférentation tandis que la deuxième parle de
+            dysafférentation. Quant à la dernière, elle montre une corrélation
+            entre l'héminégligence corporelle et la sous-utilisation acquise.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <h3>Thérapie par Contrainte Induite</h3>
+        <p>Méthode de rééducation validée par la communauté scientifique</p>
+        <p style="margin-top: 2rem">© 2025 Tous droits réservés</p>
+      </div>
     </footer>
-</body>
+  </body>
 </html>
