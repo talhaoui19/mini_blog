@@ -55,7 +55,12 @@
     display: flex;
     justify-content: center;
   }
-
+  
+  @media (max-width:991px) {
+    .bg img{
+        width: 100%;
+    }
+  }
   /* Hero Section */
   .hero {
     padding:1rem;
